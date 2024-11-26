@@ -1,0 +1,29 @@
+const {By,Key,Builder} = require("selenium-webdriver");
+require("chromedriver");
+ 
+async function example()
+{
+ 
+       var searchString = "Automation testing with Selenium";
+       
+ 
+      
+       let driver = await new Builder().forBrowser("chrome").build();
+ 
+       
+        await driver.get("http://google.com");
+            
+        
+        await driver.findElement(By.name("q")).sendKeys(searchString,Key.RETURN);
+        
+
+ 
+        //Verify the page title and print it
+        var title = await driver.getTitle();
+        console.log('Title is:',title);
+        console.log("Test case 1 Passed");
+        
+        
+        await driver.quit();
+ 
+}
